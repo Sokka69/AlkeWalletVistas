@@ -1,0 +1,38 @@
+<resources>
+    <string name="app_name">Alke Wallet</string>
+    <string name="slogan">El lugar mas seguro para tu dinero</string>
+    <string name="btcrear">Crear Cuenta</string>
+    <string name="txtlogin">Ya tienes cuenta?</string>
+<!--Pantalla Login -->
+    <string name="txt_login_bienvenida">Logea y empeza a tranferir!</string>
+    <string name="lbl_email">Email</string>
+    <string name="inputemail">Ingresar tu email</string>
+    <string name="lbl_contasena">Contraseña</string>
+    <string name="inputcontrasena">Ingresar tu contraseña</string>
+    <string name="olvidaste_contasena">Olvidaste tu contraseña?</string>
+    <string name="btn_login">Login</string>
+    <string name="txt_crear_cuenta">Crear una nueva cuenta</string>
+    <!--Pantalla Registrar -->
+    <string name="txt_registrar">Registrarse y \n empezar a tranferir</string>
+    <string name="lbl_nombre">Nombre</string>
+    <string name="lbl_apellido">Apellidor</string>
+    <string name="lbl_reing_contrasena">Reingresar contraseña</string>
+    <string name="inputnombre">Ingresa tu nombre</string>
+    <string name="inputapellido">Ingresa tu apellido</string>
+    <string name="inputconfcontrasena">Reingresar contraseña</string>
+    <!--Pantalla inicio -->
+    <string name="inicio">Inicio</string>
+    <string name="saludo">Hola, Amanda !</string>
+    <string name="btn_enviar">Enviar Dinero</string>
+    <string name="btn_ingresar">Ingresar Dinero</string>
+    <string name="btn_transacciones">Ultimas Transacciones</string>
+
+    <string name="lbl_ingresar">Cantidad a ingresar</string>
+    <string name="lbl_notastransferencia">Notas de transferencia</string>
+    <string name="lbl_agregar_notastransferencia">Agregar notas de transferencia(opcional)</string>
+
+
+    <!--Lista de Usuarios -->
+    <string name="user_4">Reem Khaled</string>
+    <string name="user_4mail">reem_1993@gmail.com</string>
+</resources>
