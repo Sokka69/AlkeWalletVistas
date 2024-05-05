@@ -10,10 +10,9 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="265dp"
         android:background="@color/plomo"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
@@ -22,13 +21,12 @@
             android:id="@+id/content"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="50dp"
+            android:layout_marginTop="53dp"
             android:fontFamily="@font/jua"
-            android:text="Mi Perfil"
+            android:text="@string/myperfil"
             android:textColor="@color/negro"
-            android:textSize="30sp"
+            android:textSize="22sp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.501"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -36,50 +34,106 @@
             android:id="@+id/imageView"
             android:layout_width="110dp"
             android:layout_height="110dp"
-            android:layout_marginTop="32dp"
+            android:layout_marginTop="100dp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.498"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/content"
+            app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/profile_picture2" />
 
         <TextView
             android:id="@+id/textView13"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="32dp"
-            android:layout_marginBottom="16dp"
+            android:layout_marginTop="220dp"
             android:fontFamily="@font/jua"
             android:text="Amanda Alkemy"
             android:textColor="@color/negro"
-            android:textSize="22sp"
-            app:layout_constraintBottom_toBottomOf="parent"
+            android:textSize="20sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imageView" />
+            app:layout_constraintTop_toTopOf="parent" />
 
-
-
+        <ImageView
+            android:id="@+id/imageView3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="52dp"
+            android:layout_marginEnd="32dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/edit_icon" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <Button
-        android:id="@+id/informacion"
-        android:layout_width="0dp"
-        android:layout_height="50dp"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="40dp"
-        android:layout_marginEnd="32dp"
-        android:backgroundTint="#F3F4F5"
-        android:drawableLeft="@drawable/profile_icon"
-        android:drawableRight="@drawable/arrow_icon"
-        android:fontFamily="@font/jua"
-        android:text="Informacion"
-        android:textAlignment="textStart"
-        android:textColor="@color/negro"
-        android:textSize="17sp"
+    <ScrollView
+        android:layout_width="409dp"
+        android:layout_height="577dp"
+        android:background="@color/blanco"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/constraintLayout" />
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/blanco"
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/button"
+                style="@style/boton_plomo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="50dp"
+                android:layout_marginLeft="32dp"
+                android:layout_marginRight="32dp"
+                android:drawableLeft="@drawable/profile_icon"
+                android:drawableRight="@drawable/arrow_icon"
+                android:text="@string/myperfil"
+                android:textAlignment="textStart"/>
+
+            <Button
+                android:id="@+id/button2"
+                style="@style/boton_plomo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:layout_marginLeft="32dp"
+                android:layout_marginRight="32dp"
+                android:drawableLeft="@drawable/card_icon"
+                android:drawableRight="@drawable/arrow_icon"
+                android:text="@string/txt_tarjetas"
+                android:textAlignment="textStart" />
+
+            <Button
+                android:id="@+id/button3"
+                style="@style/boton_plomo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:layout_marginLeft="32dp"
+                android:layout_marginRight="32dp"
+                android:drawableLeft="@drawable/settings_icon"
+                android:drawableRight="@drawable/arrow_icon"
+                android:text="@string/opciones"
+                android:textAlignment="textStart" />
+
+            <Button
+                android:id="@+id/button4"
+                style="@style/boton_plomo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:layout_marginLeft="32dp"
+                android:layout_marginRight="32dp"
+                android:drawableLeft="@drawable/help_icon"
+                android:drawableRight="@drawable/arrow_icon"
+                android:text="@string/txt_cntayuda"
+                android:textAlignment="textStart" />
+        </LinearLayout>
+
+
+    </ScrollView>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

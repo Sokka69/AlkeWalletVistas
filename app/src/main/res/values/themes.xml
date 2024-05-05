@@ -10,7 +10,7 @@
     <style name="boton_celeste">
         <item name="android:textColor">@color/blanco</item>
         <item name="backgroundTint">@color/azul</item>
-        <item name="android:textSize">20sp</item>
+        <item name="android:textSize">18sp</item>
         <item name="fontFamily">@font/jua</item>
         <item name="cornerRadius">10dp</item>
     </style>
@@ -18,7 +18,7 @@
     <style name="boton_verde">
         <item name="android:textColor">@color/negro</item>
         <item name="backgroundTint">@color/verde</item>
-        <item name="android:textSize">16sp</item>
+        <item name="android:textSize">18sp</item>
         <item name="fontFamily">@font/jua</item>
         <item name="cornerRadius">10dp</item>
     </style>
@@ -26,12 +26,19 @@
     <style name="boton_azul">
         <item name="android:textColor">@color/blanco</item>
         <item name="backgroundTint">@color/azul</item>
-        <item name="android:textSize">16sp</item>
+        <item name="android:textSize">18sp</item>
         <item name="fontFamily">@font/jua</item>
         <item name="cornerRadius">10dp</item>
     </style>
 
 
+    <style name="boton_plomo">
+        <item name="android:textColor">@color/negro</item>
+        <item name="backgroundTint">@color/plomo</item>
+        <item name="android:textSize">18sp</item>
+        <item name="fontFamily">@font/jua</item>
+        <item name="cornerRadius">10dp</item>
+    </style>
 
 
 

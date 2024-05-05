@@ -16,7 +16,7 @@ class HomePage : AppCompatActivity() {
         setContentView(R.layout.activity_home_page)
 
         //Vamos a declarar los botones para la interaccion
-        val btnEnviar = findViewById<Button>(R.id.informacion)
+        val btnEnviar = findViewById<Button>(R.id.btn_enviar)
         btnEnviar.setOnClickListener {
             val irEnviar = Intent(this, SendMoney::class.java)
             startActivity(irEnviar)
@@ -24,11 +24,11 @@ class HomePage : AppCompatActivity() {
 
         val btnIngresar = findViewById<Button>(R.id.btn_ingresar)
         btnIngresar.setOnClickListener {
-            val irSendMoney = Intent(this, SendMoney::class.java)
+            val irSendMoney = Intent(this, RequestMoney::class.java)
             startActivity(irSendMoney)
         }
 
-        val imageUser1 = findViewById<ImageView>(R.id.imageUser1)
+        val imageUser1 = findViewById<ImageView>(R.id.fotoperfil)
         imageUser1.setOnClickListener {
             val irProfilePage = Intent(this, ProfilePage::class.java)
             startActivity(irProfilePage)

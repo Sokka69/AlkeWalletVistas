@@ -13,7 +13,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
-        android:layout_marginTop="60dp"
+        android:layout_marginTop="50dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/back_icon" />
@@ -22,7 +22,7 @@
         android:id="@+id/textView14"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="60dp"
+        android:layout_marginTop="50dp"
         android:fontFamily="@font/jua"
         android:text="@string/btn_ingresar"
         android:textSize="24sp"
@@ -34,7 +34,7 @@
     <View
         android:id="@+id/view"
         android:layout_width="250dp"
-        android:layout_height="60dp"
+        android:layout_height="70dp"
         android:layout_marginStart="32dp"
         android:layout_marginTop="32dp"
         android:drawableLeft="@drawable/request_icon"
@@ -43,8 +43,9 @@
 
     <ImageView
         android:id="@+id/imageView5"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        app:layout_constraintBottom_toBottomOf="@+id/view"
         app:layout_constraintStart_toStartOf="@+id/view"
         app:layout_constraintTop_toTopOf="@+id/view"
         app:srcCompat="@drawable/user_4" />
@@ -57,7 +58,7 @@
         android:layout_marginTop="8dp"
         android:fontFamily="@font/jua"
         android:text="@string/user_4"
-        android:textSize="16sp"
+        android:textSize="17sp"
         app:layout_constraintStart_toEndOf="@+id/imageView5"
         app:layout_constraintTop_toTopOf="@+id/view" />
 
@@ -69,18 +70,20 @@
         android:fontFamily="@font/jua"
         android:text="@string/user_4mail"
         android:textColor="@color/material_dynamic_neutral80"
-        android:textSize="14sp"
+        android:textSize="15sp"
         app:layout_constraintStart_toStartOf="@+id/textView16"
-        app:layout_constraintTop_toBottomOf="@+id/textView16" />
+        app:layout_constraintTop_toBottomOf="@+id/textView16" /><![CDATA[
 
     app:layout_constraintStart_toStartOf="parent"
     app:layout_constraintTop_toTopOf="parent" />
+
+    ]]>
 
     <TextView
         android:id="@+id/textView18"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="72dp"
         android:fontFamily="@font/jua"
 
         android:text="@string/lbl_ingresar"
@@ -93,7 +96,7 @@
         android:layout_width="0dp"
         android:layout_height="50dp"
         android:layout_marginStart="32dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="16dp"
         android:layout_marginEnd="32dp"
         android:background="@drawable/style_borde_editext"
         android:ems="10"
@@ -101,6 +104,7 @@
         android:inputType="phone"
         android:textSize="17sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView18" />
 
@@ -121,6 +125,7 @@
         android:id="@+id/textView20"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
         android:layout_marginBottom="8dp"
         android:fontFamily="@font/jua"
         android:text="@string/lbl_notastransferencia"
@@ -135,8 +140,8 @@
         android:layout_height="260dp"
         android:layout_marginStart="32dp"
         android:layout_marginEnd="32dp"
-        android:layout_marginBottom="130dp"
 
+        android:layout_marginBottom="32dp"
         android:background="@drawable/style_borde_editext"
         android:ems="10"
         android:fontFamily="@font/jua"
@@ -154,6 +159,7 @@
         android:layout_marginTop="24dp"
         android:fontFamily="@font/jua"
         android:textSize="16sp"
+        android:alpha="0.5"
         android:text="@string/lbl_agregar_notastransferencia"
         app:layout_constraintStart_toStartOf="@+id/notas"
         app:layout_constraintTop_toTopOf="@+id/notas" />
@@ -166,8 +172,8 @@
         android:layout_marginStart="32dp"
         android:layout_marginEnd="32dp"
         android:layout_marginBottom="32dp"
-        android:text="@string/btn_ingresar"
         android:drawableLeft="@drawable/request_icon"
+        android:text="@string/btn_ingresar"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />

@@ -23,7 +23,7 @@ class SignUpActivity : AppCompatActivity() {
 
         val botonCrea = findViewById<TextView>(R.id.btn_crear2)
         botonCrea.setOnClickListener {
-            val irHomePage = Intent(this, HomePage::class.java)
+            val irHomePage = Intent(this, HomePageEmptyCase::class.java)
             startActivity(irHomePage)
         }
 
