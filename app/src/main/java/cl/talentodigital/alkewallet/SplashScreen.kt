@@ -8,14 +8,18 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import cl.talentodigital.alkewallet.databinding.ActivitySplashScreenBinding
 import java.util.Timer
 import java.util.TimerTask
 
 class SplashScreen : AppCompatActivity() {
+    lateinit var binding: ActivitySplashScreenBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
-        setContentView(R.layout.activity_splash_screen)
+        binding = ActivitySplashScreenBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
 
         /**
          * Abiendo la pantalla con un timer
