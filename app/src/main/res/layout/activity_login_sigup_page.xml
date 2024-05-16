@@ -32,14 +32,14 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/btn_crear2"
+        android:id="@+id/btn_crear"
         style="@style/boton_celeste"
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:layout_marginStart="40dp"
         android:layout_marginEnd="40dp"
         android:layout_marginBottom="16dp"
-        android:text="@string/btcrear"
+        android:text="@string/txt_crear_nva_cta"
         app:layout_constraintBottom_toTopOf="@+id/btn_login2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
