@@ -5,7 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".RequestMoney"
+    tools:context=".view.RequestMoney"
     tools:ignore="ExtraText">
 
     <ImageView
@@ -77,22 +77,24 @@
     app:layout_constraintStart_toStartOf="parent"
     app:layout_constraintTop_toTopOf="parent" />
 
+
+
     ]]>
 
     <TextView
         android:id="@+id/textView18"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="72dp"
-        android:fontFamily="@font/jua"
+        android:layout_marginTop="32dp"
 
+        android:fontFamily="@font/jua"
         android:text="@string/lbl_ingresar"
         android:textSize="16sp"
         app:layout_constraintStart_toStartOf="@+id/view"
-        app:layout_constraintTop_toBottomOf="@+id/textView17" />
+        app:layout_constraintTop_toBottomOf="@+id/view" />
 
     <EditText
-        android:id="@+id/editTextText"
+        android:id="@+id/txtEmail"
         android:layout_width="0dp"
         android:layout_height="50dp"
         android:layout_marginStart="32dp"
@@ -118,38 +120,38 @@
         android:textColor="@color/celesteoscuro"
         android:text="20.00 |"
         android:textSize="20sp"
-        app:layout_constraintStart_toStartOf="@+id/editTextText"
-        app:layout_constraintTop_toTopOf="@+id/editTextText" />
+        app:layout_constraintStart_toStartOf="@+id/txtEmail"
+        app:layout_constraintTop_toTopOf="@+id/txtEmail" />
 
     <TextView
         android:id="@+id/textView20"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
-        android:layout_marginBottom="8dp"
         android:fontFamily="@font/jua"
         android:text="@string/lbl_notastransferencia"
         android:textSize="16sp"
-        app:layout_constraintBottom_toTopOf="@+id/notas"
         app:layout_constraintStart_toStartOf="@+id/notas"
-        app:layout_constraintTop_toBottomOf="@+id/editTextText" />
+        app:layout_constraintTop_toBottomOf="@+id/txtEmail" />
 
     <EditText
         android:id="@+id/notas"
         android:layout_width="0dp"
         android:layout_height="260dp"
         android:layout_marginStart="32dp"
-        android:layout_marginEnd="32dp"
+        android:layout_marginTop="32dp"
 
-        android:layout_marginBottom="32dp"
+        android:layout_marginEnd="32dp"
         android:background="@drawable/style_borde_editext"
         android:ems="10"
         android:fontFamily="@font/jua"
         android:inputType="phone"
         android:textSize="17sp"
-        app:layout_constraintBottom_toTopOf="@+id/btn_ingresar"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView20" />
 
     <TextView
         android:id="@+id/textView21"
@@ -170,12 +172,12 @@
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_marginStart="32dp"
+        android:layout_marginTop="60dp"
         android:layout_marginEnd="32dp"
-        android:layout_marginBottom="32dp"
         android:drawableLeft="@drawable/request_icon"
         android:text="@string/btn_ingresar"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/notas" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,4 +1,4 @@
-package cl.talentodigital.alkewallet
+package cl.talentodigital.alkewallet.view
 
 import android.content.Intent
 import android.os.Bundle
