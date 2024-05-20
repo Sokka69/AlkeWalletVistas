@@ -20,8 +20,8 @@ class LoginSignUpActivity : AppCompatActivity() {
 
         //Configuracion los botones para la interaccion
         binding.btnCrear.setOnClickListener {
-        val irCrear = Intent(this, SignUpActivity::class.java)
-            startActivity(irCrear)
+        val crear = Intent(this, SignUpActivity::class.java)
+            startActivity(crear)
         }
 
         binding.btnLogin2.setOnClickListener {
