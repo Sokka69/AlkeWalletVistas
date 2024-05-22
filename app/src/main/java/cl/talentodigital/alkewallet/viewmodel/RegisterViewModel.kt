@@ -10,6 +10,7 @@ import kotlinx.coroutines.launch
 class RegisterViewModel: ViewModel() {
 
     val RegistrationValid = MutableLiveData<Boolean>()
+
   /*  val isRegistrationValid: LiveData<Boolean> get() = RegistrationValid
     fun crearUsuario(firstName: String, lastName: String, email: String, password: String, password1: String) {
         RegistrationValid.value = firstName.isNotEmpty() && lastName.isNotEmpty() && email.isNotEmpty() && password.isNotEmpty() && password1.isNotEmpty()
