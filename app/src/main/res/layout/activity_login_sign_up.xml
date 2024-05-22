@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/fondosvg"
-    tools:context=".view.LoginSignUpActivity">
+    tools:context=".view.LoginSignUp">
 
     <ImageView
         android:id="@+id/imageView2"

@@ -41,12 +41,22 @@ android {
 }
 
 dependencies {
+    //Implementacion dependecias para manejo para API
+    implementation (libs.kotlinx.coroutines.android)
+    implementation(libs.moshi)
+    implementation (libs.retrofit)
+    implementation (libs.converter.moshi)
+    // ViewModel
+    implementation(libs.androidx.lifecycle.viewmodel.ktx)
+    //LiveData
+    implementation(libs.androidx.lifecycle.livedata.ktx)
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.material)
     implementation(libs.androidx.activity)
     implementation(libs.androidx.constraintlayout)
+    //Test
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)

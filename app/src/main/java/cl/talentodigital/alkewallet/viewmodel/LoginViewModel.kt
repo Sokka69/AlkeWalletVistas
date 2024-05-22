@@ -1,6 +1,5 @@
 package cl.talentodigital.alkewallet.viewmodel
 
-import android.provider.ContactsContract.CommonDataKinds.Email
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import kotlinx.coroutines.CoroutineScope
@@ -18,16 +17,15 @@ class LoginViewModel : ViewModel() {
     fun hacerLogin(email: String, password: String) {
         CoroutineScope(Dispatchers.IO).launch {
             try {
-                //Aca nosotros vamos a llamar a la API
-                //val response = ApiClient.apiService.login(username, password)
+                //Llamar a la API
                 if (email == "test@test.cl" && password =="1234") {
                    loginResultLiveData.postValue(true)
 
-                    } else {
-                        loginResultLiveData.postValue(false)
-                    }
+                } else {
+                   loginResultLiveData.postValue(false)
+                }
 
-                } catch (e: Exception) {
+            } catch (e: Exception) {
                 //aqui si hay un error se ejecuta este codigo
                     loginResultLiveData.postValue(false)
             }

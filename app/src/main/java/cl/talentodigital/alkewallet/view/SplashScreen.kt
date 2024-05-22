@@ -21,7 +21,7 @@ class SplashScreen : AppCompatActivity() {
 
         //Se declara la imagen como una variable
         binding.logoApp.setOnClickListener {
-            val abrirPantallaLogin = Intent(this, LoginSignUpActivity ::class.java)
+            val abrirPantallaLogin = Intent(this, LoginSignUp ::class.java)
             startActivity(abrirPantallaLogin)
             finish()
         }
@@ -31,7 +31,7 @@ class SplashScreen : AppCompatActivity() {
          */
         var task: TimerTask? = object : TimerTask() {
             override fun run() {
-                val irHome = Intent(baseContext, LoginSignUpActivity::class.java)
+                val irHome = Intent(baseContext, LoginSignUp::class.java)
                 startActivity(irHome)
                 finish()
             }
