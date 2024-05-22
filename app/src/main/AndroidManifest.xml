@@ -13,23 +13,23 @@
         android:theme="@style/Theme.AlkeWallet"
         tools:targetApi="31">
         <activity
-            android:name=".view.LoginSignUp"
+            android:name=".view.LoginSignUpActivity"
 
             android:exported="false" />
         <activity
-            android:name=".view.RequestMoney"
+            android:name=".view.RequestMoneyActivity"
             android:exported="false" />
         <activity
-            android:name=".view.SendMoney"
+            android:name=".view.SendMoneyActivity"
             android:exported="false" />
         <activity
-            android:name=".view.ProfilePage"
+            android:name=".view.ProfilePageActivity"
             android:exported="false" />
         <activity
-            android:name=".view.HomePageEmptyCase"
+            android:name=".view.HomePageEmptyCaseActivity"
             android:exported="false" />
         <activity
-            android:name=".view.HomePage"
+            android:name=".view.HomePageActivity"
             android:exported="false" />
         <activity
             android:name=".view.SignUpActivity"
@@ -38,7 +38,7 @@
             android:name=".view.LoginActivity"
             android:exported="false" />
         <activity
-            android:name=".view.SplashScreen"
+            android:name=".view.SplashScreenActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

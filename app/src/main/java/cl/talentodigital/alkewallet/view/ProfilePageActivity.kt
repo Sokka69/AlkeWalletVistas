@@ -5,7 +5,7 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import cl.talentodigital.alkewallet.databinding.ActivityProfilePageBinding
 
-class ProfilePage : AppCompatActivity() {
+class ProfilePageActivity : AppCompatActivity() {
     private lateinit var binding: ActivityProfilePageBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

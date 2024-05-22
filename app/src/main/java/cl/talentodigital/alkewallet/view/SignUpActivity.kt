@@ -35,7 +35,7 @@ class SignUpActivity : AppCompatActivity() {
 
             viewModel.RegistrationValid.observe(this) { valid ->
                 if (valid) {
-                    val intent = Intent(this, HomePageEmptyCase::class.java)
+                    val intent = Intent(this, HomePageEmptyCaseActivity::class.java)
                     startActivity(intent)
                 } else {
                     Toast.makeText(this, "Favor ingresar los datos", Toast.LENGTH_LONG).show()

@@ -8,7 +8,7 @@ import cl.talentodigital.alkewallet.databinding.ActivitySplashScreenBinding
 import java.util.Timer
 import java.util.TimerTask
 
-class SplashScreen : AppCompatActivity() {
+class SplashScreenActivity : AppCompatActivity() {
 
     lateinit var binding: ActivitySplashScreenBinding
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -21,7 +21,7 @@ class SplashScreen : AppCompatActivity() {
 
         //Se declara la imagen como una variable
         binding.logoApp.setOnClickListener {
-            val abrirPantallaLogin = Intent(this, LoginSignUp ::class.java)
+            val abrirPantallaLogin = Intent(this, LoginSignUpActivity ::class.java)
             startActivity(abrirPantallaLogin)
             finish()
         }
@@ -31,7 +31,7 @@ class SplashScreen : AppCompatActivity() {
          */
         var task: TimerTask? = object : TimerTask() {
             override fun run() {
-                val irHome = Intent(baseContext, LoginSignUp::class.java)
+                val irHome = Intent(baseContext, LoginSignUpActivity::class.java)
                 startActivity(irHome)
                 finish()
             }

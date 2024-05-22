@@ -6,7 +6,7 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import cl.talentodigital.alkewallet.databinding.ActivityHomePageBinding
 
-class HomePage : AppCompatActivity() {
+class HomePageActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityHomePageBinding
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -19,18 +19,18 @@ class HomePage : AppCompatActivity() {
 
         //Vamos a declarar los botones para la interaccion
         binding.btnEnviar.setOnClickListener {
-            val irEnviar = Intent(this, SendMoney::class.java)
+            val irEnviar = Intent(this, SendMoneyActivity::class.java)
             startActivity(irEnviar)
         }
 
        binding.btnIngresar.setOnClickListener {
-           val irSendMoney = Intent(this, RequestMoney::class.java)
+           val irSendMoney = Intent(this, RequestMoneyActivity::class.java)
            startActivity(irSendMoney)
        }
 
        binding.fotoperfil.setOnClickListener {
-           val irProfilePage = Intent(this, ProfilePage::class.java)
-           startActivity(irProfilePage)
+           val irProfilePageActivity = Intent(this, ProfilePageActivity::class.java)
+           startActivity(irProfilePageActivity)
        }
 
 

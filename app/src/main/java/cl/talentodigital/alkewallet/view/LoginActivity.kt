@@ -42,7 +42,7 @@ class LoginActivity : AppCompatActivity() {
 
             viewModel.loginResultLiveData.observe(this) { loginOk ->
             if (loginOk == true) {
-                val irMenuPrincipal = Intent(this, HomePage::class.java)
+                val irMenuPrincipal = Intent(this, HomePageActivity::class.java)
                 startActivity(irMenuPrincipal)
             } else {
                 Toast.makeText(this, "Datos Invalidos", Toast.LENGTH_LONG).show()

@@ -7,7 +7,7 @@ import androidx.appcompat.app.AppCompatActivity
 import cl.talentodigital.alkewallet.databinding.ActivityLoginSignUpBinding
 
 
-class LoginSignUp : AppCompatActivity() {
+class LoginSignUpActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityLoginSignUpBinding
 

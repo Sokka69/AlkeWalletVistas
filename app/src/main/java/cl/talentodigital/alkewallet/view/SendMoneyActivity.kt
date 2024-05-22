@@ -4,28 +4,29 @@ import android.content.Intent
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import cl.talentodigital.alkewallet.databinding.ActivityRequestMoneyBinding
+import cl.talentodigital.alkewallet.databinding.ActivitySendMoneyBinding
 
-class RequestMoney : AppCompatActivity() {
+class SendMoneyActivity : AppCompatActivity() {
 
-    private lateinit var binding: ActivityRequestMoneyBinding
+    private lateinit var binding: ActivitySendMoneyBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         //Configuracion Binding
-        binding = ActivityRequestMoneyBinding.inflate(layoutInflater)
+        binding = ActivitySendMoneyBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
 
         //Vamos a declarar los botones para la interaccion
-        binding.btnIngresar.setOnClickListener {
-            val irHome = Intent(this, HomePage::class.java)
+        binding.btnEnviar2.setOnClickListener {
+            val irHome = Intent(this, HomePageActivity::class.java)
             startActivity(irHome)
         }
         binding.svgRegreso.setOnClickListener {
-            val irHome = Intent(this, HomePage::class.java)
+            val irHome = Intent(this, HomePageActivity::class.java)
             startActivity(irHome)
         }
+
 
     }
 }
