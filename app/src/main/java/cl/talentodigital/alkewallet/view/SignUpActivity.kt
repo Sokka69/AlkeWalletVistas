@@ -23,6 +23,11 @@ class SignUpActivity : AppCompatActivity() {
         //Configuracion ViewModel
         viewModel = ViewModelProvider(this).get(RegisterViewModel::class.java)
 
+        binding.btnLogin2.setOnClickListener {
+            val irHome = Intent(this, LoginActivity::class.java)
+            startActivity(irHome)
+        }
+
         binding.btnCrear.setOnClickListener {
 
             val firstName = binding.firstName.text.toString().trim()
@@ -33,7 +38,7 @@ class SignUpActivity : AppCompatActivity() {
 
             viewModel.hacerRegistro(firstName, lastName, email, password)
 
-            viewModel.RegistrationValid.observe(this) { valid ->
+            viewModel.RegistrationValidData.observe(this) { valid ->
                 if (valid) {
                     val intent = Intent(this, HomePageEmptyCaseActivity::class.java)
                     startActivity(intent)
@@ -44,10 +49,7 @@ class SignUpActivity : AppCompatActivity() {
             }
 
 
-            binding.btnLogin2.setOnClickListener {
-                val irHome = Intent(this, LoginActivity::class.java)
-                startActivity(irHome)
-            }
+
         }
 
     }

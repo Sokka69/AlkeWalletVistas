@@ -9,30 +9,24 @@ import kotlinx.coroutines.launch
 
 class RegisterViewModel: ViewModel() {
 
-    val RegistrationValid = MutableLiveData<Boolean>()
-
-  /*  val isRegistrationValid: LiveData<Boolean> get() = RegistrationValid
-    fun crearUsuario(firstName: String, lastName: String, email: String, password: String, password1: String) {
-        RegistrationValid.value = firstName.isNotEmpty() && lastName.isNotEmpty() && email.isNotEmpty() && password.isNotEmpty() && password1.isNotEmpty()
-
-        }*/
+    val RegistrationValidData = MutableLiveData<Boolean>()
 
     fun hacerRegistro(firstName: String, lastName: String, email: String, password: String) {
         CoroutineScope(Dispatchers.IO).launch {
+
             try {
                 //Llamar a la API
                 if (firstName.isNotEmpty() && lastName.isNotEmpty() && email.isNotEmpty() && password.isNotEmpty()) {
-                    RegistrationValid.postValue(true)
+                    RegistrationValidData.postValue(true)
 
                 } else {
-                    RegistrationValid.postValue(false)
+                    RegistrationValidData.postValue(false)
                 }
 
             } catch (e: Exception) {
                 //aqui si hay un error se ejecuta este codigo
-                RegistrationValid.postValue(false)
+                RegistrationValidData.postValue(false)
             }
         }
     }
-
-    }
+}

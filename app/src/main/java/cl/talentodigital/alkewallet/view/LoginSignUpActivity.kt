@@ -17,8 +17,10 @@ class LoginSignUpActivity : AppCompatActivity() {
         //Configuracion Binding
         binding = ActivityLoginSignUpBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
         //Configuracion los botones para la interaccion
         binding.btnCrear.setOnClickListener {
+
         val intent = Intent(this, SignUpActivity::class.java)
             startActivity(intent)
         }
