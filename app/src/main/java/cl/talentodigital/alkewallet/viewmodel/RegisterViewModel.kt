@@ -15,7 +15,7 @@ class RegisterViewModel: ViewModel() {
         CoroutineScope(Dispatchers.IO).launch {
 
             try {
-                //Llamar a la API
+                //comparara datos
                 if (firstName.isNotEmpty() && lastName.isNotEmpty() && email.isNotEmpty() && password.isNotEmpty()) {
                     RegistrationValidData.postValue(true)
 
