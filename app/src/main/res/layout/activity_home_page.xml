@@ -70,8 +70,8 @@
 
         <ImageView
             android:id="@+id/fotoperfil"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
             android:layout_marginTop="50dp"
             android:layout_marginEnd="50dp"
             app:layout_constraintEnd_toEndOf="parent"
@@ -90,6 +90,7 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <LinearLayout
+        android:id="@+id/linearLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
@@ -97,50 +98,49 @@
         app:layout_constraintTop_toBottomOf="@+id/constraintLayout">
 
 
-
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginTop="30dp">
+            android:layout_marginTop="30dp"
+            android:orientation="horizontal">
 
             <Button
                 android:id="@+id/btn_enviar"
+                style="@style/boton_verde"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="8dp"
                 android:layout_weight="1"
                 android:drawableLeft="@drawable/path"
                 android:text="@string/btn_enviar"
-                style="@style/boton_verde"
-                android:textSize="15sp"/>
+                android:textSize="15sp" />
 
             <Button
                 android:id="@+id/btn_ingresar"
+                style="@style/boton_azul"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="8dp"
                 android:layout_weight="1"
-                android:text="@string/btn_ingresar"
                 android:backgroundTint="@color/azul"
                 android:drawableLeft="@drawable/request_icon"
-                style="@style/boton_azul"
                 android:fontFamily="@font/jua"
-                android:textSize="15sp"
-                android:textColor="@color/blanco"/>
+                android:text="@string/btn_ingresar"
+                android:textColor="@color/blanco"
+                android:textSize="15sp" />
         </LinearLayout>
 
         <TextView
             android:id="@+id/lbl_transacciones"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/lbl_transacciones"
-            android:fontFamily="@font/jua"
-            android:textSize="17sp"
             android:layout_marginStart="18dp"
-            android:layout_marginTop="10dp" />
+            android:layout_marginTop="10dp"
+            android:fontFamily="@font/jua"
+            android:text="@string/lbl_transacciones"
+            android:textSize="17sp" />
 
-        <ScrollView
+        <!--<ScrollView
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
@@ -185,8 +185,21 @@
                     app:srcCompat="@drawable/user05" />
 
             </LinearLayout>
-        </ScrollView>
+        </ScrollView>-->
     </LinearLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler_list_user"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

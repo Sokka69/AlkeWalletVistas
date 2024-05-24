@@ -1,11 +1,9 @@
 package cl.talentodigital.alkewallet.model
 
 data class Transaction(
-    val amount: Long,
-    val concept: String,
+    val name: String,
+    val lastName: String,
     val date: String,
-    val type: String,
-    val accountID: Long,
-    val userID: Long,
-    val toAccountID: Long
+    val amount: String,
+    val userImageUrl: String
 )
