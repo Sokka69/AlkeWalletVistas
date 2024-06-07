@@ -43,12 +43,16 @@ android {
 dependencies {
     //Implementacion dependecias para manejo para API
     implementation (libs.kotlinx.coroutines.android)
-    implementation(libs.moshi)
+        // Retrofit
     implementation (libs.retrofit)
-    implementation (libs.converter.moshi)
-    // ViewModel
+        // Conversor
+    implementation (libs.converter.gson)
+
+    implementation("com.squareup.okhttp3:logging-interceptor:4.12.0")
+
+        // ViewModel
     implementation(libs.androidx.lifecycle.viewmodel.ktx)
-    //LiveData
+        //LiveData
     implementation(libs.androidx.lifecycle.livedata.ktx)
 
     implementation(libs.androidx.core.ktx)
