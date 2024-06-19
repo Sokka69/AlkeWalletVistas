@@ -21,7 +21,7 @@ class SignUpActivity : AppCompatActivity() {
         //Configuracion ViewModel
         viewModel = RegisterViewModel()
 
-        binding.btnLogin2.setOnClickListener { registerToLogin() }
+        binding.btnLoginCta.setOnClickListener { registerToLogin() }
 
         binding.btnCrear.setOnClickListener { register() }
 
@@ -49,7 +49,7 @@ class SignUpActivity : AppCompatActivity() {
 
     private fun goToHomePage() {
 
-        val intent = Intent(this, HomePageActivity::class.java)
+        val intent = Intent(this, HomePageEmptyCaseActivity::class.java)
         startActivity(intent)
     }
 

@@ -1,6 +1,7 @@
 package cl.talentodigital.alkewallet
 
 import android.app.Application
+import cl.talentodigital.alkewallet.data.model.AccountResponse
 import cl.talentodigital.alkewallet.data.model.UserResponse
 
 class AlkeWalletApp : Application() {
@@ -14,5 +15,6 @@ class AlkeWalletApp : Application() {
         super.onCreate()
         userLogged = null
         tokenAccess = null
+        var userAccount: AccountResponse? = null
     }
 }

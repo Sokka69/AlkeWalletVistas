@@ -5,11 +5,15 @@ import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import cl.talentodigital.alkewallet.databinding.ActivityHomePageEmptyCaseBinding
+import cl.talentodigital.alkewallet.presentation.viewmodel.LoginViewModel
 
 
 class HomePageEmptyCaseActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityHomePageEmptyCaseBinding
+    private lateinit var viewModel: LoginViewModel
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -17,6 +21,10 @@ class HomePageEmptyCaseActivity : AppCompatActivity() {
         //Configuracion Binding
         binding = ActivityHomePageEmptyCaseBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+
+
+
 
 
         //Configuracion botones para la interaccion

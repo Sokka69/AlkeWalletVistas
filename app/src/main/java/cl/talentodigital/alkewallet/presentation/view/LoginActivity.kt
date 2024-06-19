@@ -3,6 +3,7 @@ package cl.talentodigital.alkewallet.presentation.view
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
@@ -13,7 +14,6 @@ import cl.talentodigital.alkewallet.presentation.viewmodel.LoginViewModel
 
 class LoginActivity : AppCompatActivity() {
     private lateinit var binding: ActivityLoginBinding
-
     private lateinit var viewModel: LoginViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -22,11 +22,19 @@ class LoginActivity : AppCompatActivity() {
         binding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        /*  val viewModelFactory = LoginViewModelFactory(application)*/
         //Configuracion ViewModel
-        viewModel = ViewModelProvider(this).get(LoginViewModel::class.java)
+        viewModel = ViewModelProvider(this)[LoginViewModel::class.java]
+
+        val sharedPreferences = getSharedPreferences("AlkeWallet", MODE_PRIVATE)
+        val emailIngresado = sharedPreferences.getString("email", null)
+        if (emailIngresado != null) {
+            binding.txtEmail.setText(emailIngresado)
+        }
 
 
         //Configurar onClick
+        binding.btnCrearCuenta.setOnClickListener { goToRegisterActivity() }
         binding.btnLogin.setOnClickListener { login() }
 
 
@@ -59,20 +67,25 @@ class LoginActivity : AppCompatActivity() {
     }
 
     private fun goToHomePage() {
-        val intent = Intent(this, HomePageActivity::class.java)
+        val intent = Intent(this, HomePageEmptyCaseActivity::class.java)
         startActivity(intent)
     }
 
+
     private fun login() {
+
         val emailEnter = binding.txtEmail.text.toString()
         val passwordEnter = binding.txtPassword.text.toString()
+
 
         if (emailEnter != null && passwordEnter != null) {
 
             viewModel.login(emailEnter, passwordEnter)
+            Log.d("prueba", "Email: $emailEnter, Password: $passwordEnter")
 
         } else {
             Toast.makeText(this, "Los datos no pueden estar vacios", Toast.LENGTH_SHORT).show()
         }
+
     }
 }

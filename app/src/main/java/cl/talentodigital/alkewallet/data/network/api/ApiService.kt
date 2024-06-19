@@ -24,9 +24,11 @@ interface ApiService {
     @POST("users")
     suspend fun register(@Body request: RegisterRequest): RegisterResponse
 
-    //UserResponse
+    //Datos de Usuario logeado
     @GET("auth/me")
     suspend fun getUserData(@Header("Authorization") token: String): Response<UserResponse>
+
+
 
 
 
