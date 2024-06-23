@@ -1,6 +1,9 @@
 plugins {
     alias(libs.plugins.androidApplication)
     alias(libs.plugins.jetbrainsKotlinAndroid)
+    //Room ksp
+    id("com.google.devtools.ksp")
+
 }
 
 android {
@@ -48,12 +51,17 @@ dependencies {
         // Conversor
     implementation (libs.converter.gson)
 
-    implementation("com.squareup.okhttp3:logging-interceptor:4.12.0")
+    implementation(libs.logging.interceptor)
 
         // ViewModel
     implementation(libs.androidx.lifecycle.viewmodel.ktx)
         //LiveData
     implementation(libs.androidx.lifecycle.livedata.ktx)
+
+    //Room
+    implementation(libs.androidx.room.runtime)
+    ksp(libs.androidx.room.compiler)
+
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
