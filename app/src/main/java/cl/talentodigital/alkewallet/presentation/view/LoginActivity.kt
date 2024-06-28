@@ -6,10 +6,14 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.util.PatternsCompat
 import androidx.lifecycle.ViewModelProvider
 import cl.talentodigital.alkewallet.AlkeWalletApp
 import cl.talentodigital.alkewallet.databinding.ActivityLoginBinding
 import cl.talentodigital.alkewallet.presentation.viewmodel.LoginViewModel
+import cl.talentodigital.alkewallet.presentation.viewmodel.LoginViewModelFactory
+import com.google.android.material.textfield.TextInputEditText
+import com.google.android.material.textfield.TextInputLayout
 
 
 class LoginActivity : AppCompatActivity() {
@@ -22,16 +26,17 @@ class LoginActivity : AppCompatActivity() {
         binding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        /*  val viewModelFactory = LoginViewModelFactory(application)*/
+        val viewModelFactory = LoginViewModelFactory(application)
+
+
         //Configuracion ViewModel
-        viewModel = ViewModelProvider(this)[LoginViewModel::class.java]
+        viewModel = ViewModelProvider(this, viewModelFactory)[LoginViewModel::class.java]
 
         val sharedPreferences = getSharedPreferences("AlkeWallet", MODE_PRIVATE)
-        val emailIngresado = sharedPreferences.getString("email", null)
-        if (emailIngresado != null) {
-            binding.txtEmail.setText(emailIngresado)
+        val emailEnter = sharedPreferences.getString("email", null)
+        if (emailEnter != null) {
+            binding.textFieldEmail.setText(emailEnter)
         }
-
 
         //Configurar onClick
         binding.btnCrearCuenta.setOnClickListener { goToRegisterActivity() }
@@ -51,6 +56,10 @@ class LoginActivity : AppCompatActivity() {
         }
         viewModel.userDataLiveData.observe(this) { userResponse ->
             if (userResponse != null) {
+                Log.d(
+                    "UserData",
+                    "Usuario: ${userResponse.first_name} Apellido: ${userResponse.last_name}"
+                )
                 goToHomePage()
 
             } else {
@@ -59,6 +68,7 @@ class LoginActivity : AppCompatActivity() {
                 ).show()
             }
         }
+
     }
 
     private fun goToRegisterActivity() {
@@ -67,18 +77,24 @@ class LoginActivity : AppCompatActivity() {
     }
 
     private fun goToHomePage() {
-        val intent = Intent(this, HomePageEmptyCaseActivity::class.java)
+        val intent = Intent(this, HomePageActivity::class.java)
         startActivity(intent)
     }
 
 
     private fun login() {
 
-        val emailEnter = binding.txtEmail.text.toString()
-        val passwordEnter = binding.txtPassword.text.toString()
+        val emailEnter = binding.textFieldEmail.text.toString()
+        val passwordEnter = binding.textFieldPass.text.toString()
 
 
-        if (emailEnter != null && passwordEnter != null) {
+        if (validateEmail(binding.textFieldEmail, binding.textFieldEmailError) &&
+            validatePass(binding.textFieldPass, binding.textFieldPassError)) {
+
+            val sharedPreferences = getSharedPreferences("AlkeWallet", MODE_PRIVATE)
+            val editor = sharedPreferences.edit()
+            editor.putString("email", emailEnter)
+            editor.apply()
 
             viewModel.login(emailEnter, passwordEnter)
             Log.d("prueba", "Email: $emailEnter, Password: $passwordEnter")
@@ -88,4 +104,40 @@ class LoginActivity : AppCompatActivity() {
         }
 
     }
+
+    private fun validateEmail(email: TextInputEditText, email2: TextInputLayout): Boolean {
+        val emailText = email.text.toString().trim()
+        return when {
+            emailText.isEmpty() -> {
+                email2.error = "Requerido"
+                false
+            }
+
+            !PatternsCompat.EMAIL_ADDRESS.matcher(emailText).matches() -> {
+                email2.error = "Correo no válido"
+                false
+            }
+
+            else -> {
+                email2.error = null
+                true
+            }
+        }
+    }
+
+    private fun validatePass(pass: TextInputEditText, errorPassTF: TextInputLayout): Boolean {
+        val passText = pass.text.toString().trim()
+        return when {
+            passText.isEmpty() -> {
+                errorPassTF.error = "Contraseña requerida"
+                false
+            }
+
+            else -> {
+                errorPassTF.error = null
+                true
+            }
+        }
+    }
+
 }

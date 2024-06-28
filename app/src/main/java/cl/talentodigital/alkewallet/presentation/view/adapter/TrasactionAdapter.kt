@@ -4,11 +4,11 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import cl.talentodigital.alkewallet.R
-import cl.talentodigital.alkewallet.databinding.CardViewListUsersTransactionBinding
 import cl.talentodigital.alkewallet.data.model.Transaction
+import cl.talentodigital.alkewallet.databinding.CardViewListUsersTransactionBinding
 import com.bumptech.glide.Glide
 
-class TransactionAdapter(private val transactions: List<Transaction>) :
+class TransactionAdapter(private val transactionList: List<Transaction>) :
     RecyclerView.Adapter<TransactionAdapter.TransactionViewHolder>() {
 
         inner class TransactionViewHolder(private val binding: CardViewListUsersTransactionBinding) :
@@ -34,11 +34,11 @@ class TransactionAdapter(private val transactions: List<Transaction>) :
     }
 
     override fun onBindViewHolder(holder: TransactionViewHolder, position: Int) {
-        holder.bind(transactions[position])
+        holder.bind(transactionList[position])
     }
 
     override fun getItemCount(): Int {
-        return transactions.size
+        return transactionList.size
     }
 
 /*class ListTransactionAdapter(private val listaTransacciones: List<Transaction>) : RecyclerView.Adapter<ListTransactionAdapter.ViewHolder>() {

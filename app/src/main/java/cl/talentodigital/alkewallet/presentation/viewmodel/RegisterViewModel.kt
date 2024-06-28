@@ -11,7 +11,7 @@ import kotlinx.coroutines.launch
 
 class RegisterViewModel: ViewModel() {
 
-    val registrationValidData = MutableLiveData<Boolean>()
+    val registerResultLiveData = MutableLiveData<Boolean>()
 
     fun register(firstName: String, lastName: String, email: String, password: String) {
         CoroutineScope(Dispatchers.IO).launch {
@@ -26,15 +26,15 @@ class RegisterViewModel: ViewModel() {
                 )
             )
                 //comparara datos
-                if (response != null) {
-                    registrationValidData.postValue(true)
+                if (response.id != null) {
+                    registerResultLiveData.postValue(true)
                 } else {
-                    registrationValidData.postValue(false)
+                    registerResultLiveData.postValue(false)
                 }
 
             } catch (e: Exception) {
                 //aqui si hay un error se ejecuta este codigo
-                registrationValidData.postValue(false)
+                registerResultLiveData.postValue(false)
             }
         }
     }

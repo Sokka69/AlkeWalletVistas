@@ -26,7 +26,7 @@ class SignUpActivity : AppCompatActivity() {
         binding.btnCrear.setOnClickListener { register() }
 
 
-        viewModel.registrationValidData.observe(this) { valid ->
+        viewModel.registerResultLiveData.observe(this) { valid ->
             if (valid) {
                 Toast.makeText(this, "Registro exitoso", Toast.LENGTH_LONG).show()
                 goToHomePage()

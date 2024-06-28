@@ -5,19 +5,20 @@ import android.util.Log
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
 import cl.talentodigital.alkewallet.AlkeWalletApp
+import cl.talentodigital.alkewallet.data.model.PaymentRequest
+import cl.talentodigital.alkewallet.data.model.PaymentResponse
 import cl.talentodigital.alkewallet.data.network.api.ApiClient
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import okio.IOException
 
-class HomeViewModel (application: Application) : AndroidViewModel(application) {
+class SendMoneyViewModel(application: Application) : AndroidViewModel(application) {
 
-    val accountCheckLiveData = MutableLiveData<Boolean>()
+    val paymentResultLiveData = MutableLiveData<PaymentResponse?>()
     val errorMessageLiveData = MutableLiveData<String>()
-    val userBalanceLiveData = MutableLiveData<Double?>()
 
-    fun checkUserAccount() {
+    fun sendPayment(concept: String, amount: Double) {
         CoroutineScope(Dispatchers.IO).launch {
             try {
                 val token = AlkeWalletApp.tokenAccess
@@ -25,25 +26,23 @@ class HomeViewModel (application: Application) : AndroidViewModel(application) {
                     errorMessageLiveData.postValue("Token no encontrado")
                     return@launch
                 }
-                val response = ApiClient.apiService.getAccount("Bearer $token")
-                if (response.isSuccessful) {
-                    val accountData = response.body()
-                    if (accountData != null && accountData.isNotEmpty()) {
-                        AlkeWalletApp.userAccount = accountData[0]
-                        accountCheckLiveData.postValue(true)
-                        userBalanceLiveData.postValue(accountData[0].money)
-                    } else {
-                        accountCheckLiveData.postValue(false)
-                    }
-                } else {
-                    accountCheckLiveData.postValue(false)
-                }
+                val paymentRequest = PaymentRequest(type = "payment", concept = concept, amount = amount)
+                val response = ApiClient.apiService.sendPayment("Bearer $token", 2163,paymentRequest)
 
+                if (response.isSuccessful) {
+                    val paymentResponse = response.body()
+                    paymentResultLiveData.postValue(paymentResponse)
+                } else {
+                    val errorBody = response.errorBody()?.string()
+                    Log.e("SendMoneyViewModel", "Error al enviar el pago: $errorBody")
+                    errorMessageLiveData.postValue("Error al enviar el pago: $errorBody")
+                }
             } catch (e: IOException) {
-                Log.e("HomeViewModel", "Error de red : ${e.message}")
+                Log.e("SendMoneyViewModel", "Error de red: ${e.message}")
                 errorMessageLiveData.postValue("Error de red: ${e.message}")
-            } catch (e: Exception){
-                Log.e("HomeViewModel", "Error desconocido: ${e.message}")
+
+            } catch (e: Exception) {
+                Log.e("SendMoneyViewModel", "Error desconocido: ${e.message}")
                 errorMessageLiveData.postValue("Error desconocido: ${e.message}")
             }
         }

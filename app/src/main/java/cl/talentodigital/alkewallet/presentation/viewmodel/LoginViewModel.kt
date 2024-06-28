@@ -12,6 +12,7 @@ import cl.talentodigital.alkewallet.data.network.api.ApiClient
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import java.io.IOException
 
 
 /*View model escargado de hacer el login de la APP*/
@@ -64,20 +65,18 @@ class LoginViewModel(application: Application) : AndroidViewModel(application) {
                     loginResultLiveData.postValue(true)
 
                 }
-            } catch (e: Exception) {
+            } catch (e: IOException) {
                 loginResultLiveData.postValue(false)
-                Log.e("Errores", "Error: ${e.message}")
-                loginResultLiveData.postValue(false)
+                Log.e("Error", "Error de red: ${e.message}")
+
             } catch (e: Exception) {
                 // Manejar otros errores
-                Log.e("Prueba", "Error desconocido: ${e.message}")
+                Log.e("Error", "Error desconocido: ${e.message}")
                 loginResultLiveData.postValue(false)
             } finally {
                 loadingLiveData.postValue(false) // Indicar fin de carga
             }
-
         }
-
     }
     //funcion para obtener los datos del usuario
     fun getUserData() {
@@ -94,18 +93,15 @@ class LoginViewModel(application: Application) : AndroidViewModel(application) {
 
                 } else {
                     userDataLiveData.postValue(null)
-
                 }
-
-
-            } catch (e: Exception) {
+            } catch (e: IOException) {
                 // aquí si hay un error se ejecuta este código
-                Log.e("Errores", "Error: ${e.message}")
+                Log.e("Error", "Error de red: ${e.message}")
                 userDataLiveData.postValue(null)
 
             } catch (e: Exception) {
                 // Manejar otros errores
-                Log.e("Prueba", "Error desconocido: ${e.message}")
+                Log.e("Error", "Error desconocido: ${e.message}")
                 userDataLiveData.postValue(null)
 
             } finally {

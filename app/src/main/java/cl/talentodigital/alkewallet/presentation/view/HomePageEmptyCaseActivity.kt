@@ -37,7 +37,7 @@ class HomePageEmptyCaseActivity : AppCompatActivity() {
             startActivity(irSendMoney)
         }
 
-        binding.fotoperfil.setOnClickListener {
+        binding.imgFotoUser.setOnClickListener {
             val irProfilePageActivity = Intent(this, ProfilePageActivity::class.java)
             startActivity(irProfilePageActivity)
         }

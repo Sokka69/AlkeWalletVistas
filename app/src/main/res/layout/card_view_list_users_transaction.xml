@@ -9,11 +9,13 @@
         android:id="@+id/img_profile_list"
         android:layout_width="50dp"
         android:layout_height="50dp"
-        android:layout_marginStart="4dp"
-        android:layout_marginTop="4dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat= "@drawable/profile_picture"/>
+        app:srcCompat="@drawable/profile_picture" />
 
     <TextView
         android:id="@+id/name"
@@ -31,7 +33,7 @@
         android:id="@+id/date_list"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
+        android:layout_marginTop="8dp"
         android:fontFamily="@font/jua"
         android:text="Oct, 14 10:24 AM"
         android:textColor="@color/material_dynamic_neutral40"
@@ -43,7 +45,7 @@
         android:id="@+id/ammount_list"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="16dp"
+        android:layout_marginEnd="24dp"
         android:fontFamily="@font/jua"
         android:text="-$15.00"
         android:textColor="@color/negro"

@@ -9,12 +9,13 @@ class AlkeWalletApp : Application() {
     companion object{
         var userLogged: UserResponse? = null
         var tokenAccess: String? = null
+        var userAccount: AccountResponse? = null
     }
 
     override fun onCreate() {
         super.onCreate()
         userLogged = null
         tokenAccess = null
-        var userAccount: AccountResponse? = null
+
     }
 }

@@ -2,15 +2,24 @@ package cl.talentodigital.alkewallet.presentation.view
 
 import android.content.Intent
 import android.os.Bundle
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
+import cl.talentodigital.alkewallet.AlkeWalletApp
 import cl.talentodigital.alkewallet.databinding.ActivityHomePageBinding
-import cl.talentodigital.alkewallet.data.model.Transaction
 import cl.talentodigital.alkewallet.presentation.view.adapter.TransactionAdapter
+import cl.talentodigital.alkewallet.presentation.viewmodel.AssignAccountViewModel
+import cl.talentodigital.alkewallet.presentation.viewmodel.HomeViewModel
+import cl.talentodigital.alkewallet.presentation.viewmodel.TransactionViewModel
 
 class HomePageActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityHomePageBinding
+    private lateinit var transactionViewModel: TransactionViewModel
+    private lateinit var homeViewModel: HomeViewModel
+    private lateinit var assignAccountViewModel: AssignAccountViewModel
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -18,44 +27,89 @@ class HomePageActivity : AppCompatActivity() {
         binding = ActivityHomePageBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        homeViewModel = ViewModelProvider(this)[HomeViewModel::class.java]
+        assignAccountViewModel = ViewModelProvider(this)[AssignAccountViewModel::class.java]
+        transactionViewModel = ViewModelProvider(this)[TransactionViewModel::class.java]
 
-        //Vamos a declarar los botones para la interaccion
-        binding.btnEnviar.setOnClickListener {
-            val irEnviar = Intent(this, SendMoneyActivity::class.java)
-            startActivity(irEnviar)
+
+        // Obtener el nombre del usuario desde GlobalClassApp
+        val userName = "Hola, ${AlkeWalletApp.userLogged?.first_name}"
+        binding.txtUserName.text = userName
+
+        binding.btnEnviar.setOnClickListener { goToSendMoney() }
+        binding.btnIngresar.setOnClickListener { goToAddMoney() }
+        binding.imgFotoUser.setOnClickListener { goToProfile() }
+
+        // Observamos los resultados de la verificación de la cuenta
+/*        homeViewModel.accountCheckLiveData.observe(this) { hasAccount ->
+            if (hasAccount) {
+                Toast.makeText(this, "Sí hay cuenta", Toast.LENGTH_SHORT).show()
+            } else {
+                showNoAccountDialog()
+            }
+        }*/
+
+        homeViewModel.userBalanceLiveData.observe(this) { balance ->
+            binding.userSaldo.text = "$$balance"
         }
 
-        // Simulated list of transactions with URLs for user images
-        val transactions = listOf(
-            Transaction("Sara ", "Ibrahim", "2024-05-19","$200.0" ,"https://i.ibb.co/8Kr66KJ/user-2.png"),
-            Transaction("Reem ", "Khaled", "2024-05-19", "$130.0","https://i.ibb.co/XpXGQRv/user-1.png"),
-            Transaction("Ahmad ", "Ibrahim", "2024-05-19","-$50.0" ,"https://i.ibb.co/k2ZWbh7/user-3.png"),
-            Transaction("Yara ", "Khalil", "2024-05-19","$300.0" ,"https://i.ibb.co/QbmNchQ/user-4.png"),
-            Transaction("Hiba ", "Saleh", "2024-05-18","$50.0" ,"https://i.ibb.co/1vFsvdF/user-5.png"),
-            Transaction("Ahmad ", "Ibrahim", "2024-05-18","$450.0" ,"https://i.ibb.co/k2ZWbh7/user-3.png"),
-            Transaction("Reem ", "Khaled", "2024-05-18", "-$30.0","https://i.ibb.co/XpXGQRv/user-1.png"),
-            Transaction("Yara ", "Khalil", "2024-05-18","$100.0" ,"https://i.ibb.co/QbmNchQ/user-4.png"),
-            Transaction("Hiba ", "Saleh", "2024-05-17","$150.0" ,"https://i.ibb.co/1vFsvdF/user-5.png"),
-            Transaction("Sara ", "Ibrahim", "2024-05-17","$100.0" ,"https://i.ibb.co/8Kr66KJ/user-2.png"),
-            Transaction("Ahmad ", "Ibrahim", "2024-05-17","-$50.0" ,"https://i.ibb.co/k2ZWbh7/user-3.png"),
-            Transaction("Yara ", "Khalil", "2024-05-19","$100.0" ,"https://i.ibb.co/QbmNchQ/user-4.png"),
-            Transaction("Sara ", "Ibrahim", "2024-05-16","-$150.0" ,"https://i.ibb.co/8Kr66KJ/user-2.png"),
-            Transaction("Hiba ", "Saleh", "2024-05-16","$50.0" ,"https://i.ibb.co/1vFsvdF/user-5.png")
-        )
-        // Setting up the RecyclerView
-        binding.recyclerListUser.layoutManager = LinearLayoutManager(this)
-        binding.recyclerListUser.adapter = TransactionAdapter(transactions)
+        homeViewModel.errorMessageLiveData.observe(this) { errorMessage ->
+            Toast.makeText(this, errorMessage, Toast.LENGTH_SHORT).show()
+        }
 
+        assignAccountViewModel.accountCreatedLiveData.observe(this) { accountCreated ->
+            if (accountCreated) {
+                Toast.makeText(this, "Cuenta asignada exitosamente", Toast.LENGTH_SHORT).show()
+                //aqui volveremos a cargar el homePageActivity
+                val intent = Intent(this, HomePageActivity::class.java)
+                startActivity(intent)
+                finish()
+            } else {
+                Toast.makeText(this, "Error al asignar cuenta", Toast.LENGTH_SHORT).show()
+            }
+        }
 
+        assignAccountViewModel.errorMessageLiveData.observe(this) { errorMessage ->
+            Toast.makeText(this, errorMessage, Toast.LENGTH_SHORT).show()
+        }
+        transactionViewModel.transactionsLiveData.observe(this) { transactions ->
+            if (transactions.isNotEmpty()) {
+                val adapter = TransactionAdapter(transactions)
+                binding.recyclerListUser.adapter = adapter
+                binding.recyclerListUser.layoutManager = LinearLayoutManager(this)
+                /*linearLayoutEmpty.visibility = View.GONE
+                linearLayoutTransactions.visibility = View.VISIBLE*/
+            } else {
+               /* linearLayoutEmpty.visibility = View.VISIBLE
+                linearLayoutTransactions.visibility = View.GONE*/
+            }
+        }
+        transactionViewModel.errorMessageLiveData.observe(this) { errorMessage ->
+            Toast.makeText(this, errorMessage, Toast.LENGTH_SHORT).show()
+        }
 
-       binding.btnIngresar.setOnClickListener {
-           val irSendMoney = Intent(this, RequestMoneyActivity::class.java)
-           startActivity(irSendMoney)
-       }
+        // Verificar la cuenta del usuario
+        homeViewModel.checkUserAccount()
 
-       binding.fotoperfil.setOnClickListener {
-           val irProfilePageActivity = Intent(this, ProfilePageActivity::class.java)
-           startActivity(irProfilePageActivity)
-       }
+        // Obtener transacciones
+        transactionViewModel.fetchTransactions()
     }
+
+    private fun goToProfile() {
+        val intent = Intent(this, ProfilePageActivity::class.java)
+        startActivity(intent)
+    }
+
+    private fun goToAddMoney() {
+        val intent = Intent(this, RequestMoneyActivity::class.java)
+        startActivity(intent)
+    }
+
+    private fun goToSendMoney() {
+        val intent = Intent(this, SendMoneyActivity::class.java)
+        startActivity(intent)
+
+    }
+
+
 }

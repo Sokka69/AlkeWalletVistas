@@ -34,11 +34,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="50dp"
-            android:alpha="0.5"
             android:fontFamily="@font/jua"
             android:text="@string/txt_saludo"
             android:textColor="@color/blanco"
             android:textSize="20sp"
+            android:textStyle="bold"
             app:layout_constraintStart_toStartOf="@+id/lbl_inicio"
             app:layout_constraintTop_toBottomOf="@+id/lbl_inicio" />
 
@@ -50,12 +50,12 @@
             android:fontFamily="@font/jua"
             android:text="@string/txt_balance"
             android:textColor="@color/blanco"
-            android:textSize="22sp"
+            android:textSize="20sp"
             app:layout_constraintStart_toStartOf="@+id/txt_user_name"
             app:layout_constraintTop_toBottomOf="@+id/txt_user_name" />
 
         <TextView
-            android:id="@+id/content"
+            android:id="@+id/user_saldo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
@@ -63,143 +63,95 @@
             android:fontFamily="@font/jua"
             android:text="@string/txt_saldo"
             android:textColor="@color/blanco"
-            android:textSize="40sp"
+            android:textSize="35sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="@+id/textView13"
             app:layout_constraintTop_toBottomOf="@+id/textView13" />
 
         <ImageView
-            android:id="@+id/fotoperfil"
-            android:layout_width="60dp"
-            android:layout_height="60dp"
+            android:id="@+id/img_foto_user"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
             android:layout_marginTop="50dp"
             android:layout_marginEnd="50dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/profile_picture" />
+            app:srcCompat="@drawable/user_3" />
 
         <ImageView
             android:id="@+id/ico_notificacion"
             android:layout_width="31dp"
             android:layout_height="35dp"
-            android:layout_marginTop="120dp"
-            app:layout_constraintEnd_toEndOf="@+id/fotoperfil"
-            app:layout_constraintTop_toBottomOf="@+id/fotoperfil"
+            android:layout_marginTop="92dp"
+            app:layout_constraintEnd_toEndOf="@+id/img_foto_user"
+            app:layout_constraintTop_toBottomOf="@+id/img_foto_user"
             app:srcCompat="@drawable/notifications__icon" />
-
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <LinearLayout
-        android:id="@+id/linearLayout"
+        android:id="@+id/linearLayout2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
+        android:layout_marginStart="1dp"
+        android:layout_marginTop="16dp"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/constraintLayout">
 
+        <Button
+            android:id="@+id/btn_enviar"
+            style="@style/boton_verde"
+            android:layout_width="wrap_content"
+            android:layout_height="60dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="7dp"
+            android:layout_weight="1"
+            android:drawableLeft="@drawable/path"
+            android:text="@string/btn_enviar" />
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="30dp"
-            android:orientation="horizontal">
+        <Button
+            android:id="@+id/btn_ingresar"
+            style="@style/boton_azul"
+            android:layout_width="wrap_content"
+            android:layout_height="60dp"
+            android:layout_marginLeft="7dp"
+            android:layout_marginRight="10dp"
+            android:layout_weight="1"
+            android:drawableLeft="@drawable/request_icon"
+            android:text="@string/btn_ingresar"
 
-            <Button
-                android:id="@+id/btn_enviar"
-                style="@style/boton_verde"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="8dp"
-                android:layout_weight="1"
-                android:drawableLeft="@drawable/path"
-                android:text="@string/btn_enviar"
-                android:textSize="15sp" />
-
-            <Button
-                android:id="@+id/btn_ingresar"
-                style="@style/boton_azul"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="8dp"
-                android:layout_weight="1"
-                android:backgroundTint="@color/azul"
-                android:drawableLeft="@drawable/request_icon"
-                android:fontFamily="@font/jua"
-                android:text="@string/btn_ingresar"
-                android:textColor="@color/blanco"
-                android:textSize="15sp" />
-        </LinearLayout>
-
-        <TextView
-            android:id="@+id/lbl_transacciones"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="18dp"
-            android:layout_marginTop="10dp"
-            android:fontFamily="@font/jua"
-            android:text="@string/lbl_transacciones"
-            android:textSize="17sp" />
-
-        <!--<ScrollView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
-
-                <ImageView
-                    android:id="@+id/imageView12"
-                    android:layout_width="370dp"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    app:srcCompat="@drawable/user01" />
-
-                <ImageView
-                    android:id="@+id/imageView13"
-                    android:layout_width="370dp"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    app:srcCompat="@drawable/user02" />
-
-                <ImageView
-                    android:id="@+id/imageView14"
-                    android:layout_width="370dp"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    app:srcCompat="@drawable/user03" />
-
-                <ImageView
-                    android:id="@+id/imageView16"
-                    android:layout_width="370dp"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    app:srcCompat="@drawable/user04" />
-
-                <ImageView
-                    android:id="@+id/imageView15"
-                    android:layout_width="370dp"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    app:srcCompat="@drawable/user05" />
-
-            </LinearLayout>
-        </ScrollView>-->
+            />
     </LinearLayout>
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recycler_list_user"
-        android:layout_width="match_parent"
+    <TextView
+        android:id="@+id/lbl_transacciones"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="32dp"
+        android:fontFamily="@font/jua"
+        android:text="@string/lbl_transacciones"
+        android:textSize="17sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout2" />
+
+    <LinearLayout
+        android:id="@+id/transition_Layout"
+        android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="8dp"
+        android:orientation="vertical"
+        android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
+        app:layout_constraintTop_toBottomOf="@+id/lbl_transacciones">
 
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycler_list_user"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1" />
 
+    </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

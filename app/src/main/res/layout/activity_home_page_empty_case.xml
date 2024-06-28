@@ -70,7 +70,7 @@
             app:layout_constraintTop_toBottomOf="@+id/textView13" />
 
         <ImageView
-            android:id="@+id/fotoperfil"
+            android:id="@+id/img_foto_user"
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:layout_marginTop="50dp"
@@ -84,8 +84,8 @@
             android:layout_width="31dp"
             android:layout_height="35dp"
             android:layout_marginTop="120dp"
-            app:layout_constraintEnd_toEndOf="@+id/fotoperfil"
-            app:layout_constraintTop_toBottomOf="@+id/fotoperfil"
+            app:layout_constraintEnd_toEndOf="@+id/img_foto_user"
+            app:layout_constraintTop_toBottomOf="@+id/img_foto_user"
             app:srcCompat="@drawable/notifications__icon" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
