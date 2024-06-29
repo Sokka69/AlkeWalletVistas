@@ -12,13 +12,16 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import java.io.IOException
+import java.text.SimpleDateFormat
+import java.util.Date
+import java.util.Locale
 
 class RequestMoneyViewModel(application: Application) : AndroidViewModel(application) {
 
    val topUpResultLiveData = MutableLiveData<PaymentResponse?>()
    val errorMessageLiveData = MutableLiveData<String>()
 
-    fun requestMoney(accountId: Int, concept: String, amount: Double) {
+   fun requestMoney(accountId: Int, concept: String, amount: Double) {
         CoroutineScope(Dispatchers.IO).launch {
             try {
                 val token = AlkeWalletApp.tokenAccess
@@ -26,7 +29,12 @@ class RequestMoneyViewModel(application: Application) : AndroidViewModel(applica
                     errorMessageLiveData.postValue("Token no encontrado")
                     return@launch
                 }
-                val paymentRequest = PaymentRequest(type = "topup", concept = concept, amount = amount)
+
+                // Obtener la fecha actual en el formato requerido
+                val sdf = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'", Locale.getDefault())
+                val currentDate = sdf.format(Date())
+
+                val paymentRequest = PaymentRequest(type = "topup", concept = concept, amount = amount, date = currentDate)
                 val response = ApiClient.apiService.sendPayment("Bearer $token", accountId, paymentRequest)
                 if (response.isSuccessful) {
                     val paymentResponse = response.body()
@@ -46,4 +54,5 @@ class RequestMoneyViewModel(application: Application) : AndroidViewModel(applica
             }
         }
     }
+
 }

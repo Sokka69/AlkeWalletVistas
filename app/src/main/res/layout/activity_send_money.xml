@@ -39,7 +39,7 @@
         android:layout_marginTop="40dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/svgRegreso"
-        app:srcCompat="@drawable/user_3" />
+        app:srcCompat="@drawable/ic_user_send" />
 
     <TextView
         android:id="@+id/user_name"
@@ -102,7 +102,7 @@
             android:id="@+id/editTextAmount"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="16sp"
+            android:textSize="18sp"
             android:textStyle="bold"
             android:textColor="@color/verde"/>
     </com.google.android.material.textfield.TextInputLayout>
@@ -122,6 +122,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textInputLayout" />
 
     <com.google.android.material.textfield.TextInputLayout
+
         android:layout_width="match_parent"
         android:layout_height="200dp"
         android:layout_marginStart="32dp"
@@ -139,7 +140,7 @@
             android:fontFamily="@font/jua"
             android:gravity="top"
             android:hint="@string/lbl_agregar_notastransferencia"
-            android:textSize="14sp" />
+            android:textSize="16sp" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <Button
@@ -149,7 +150,7 @@
         android:layout_height="50dp"
         android:layout_marginStart="32dp"
         android:layout_marginEnd="32dp"
-        android:layout_marginBottom="32dp"
+        android:layout_marginBottom="60dp"
         android:drawableLeft="@drawable/path"
         android:text="@string/btn_enviar"
         app:layout_constraintBottom_toBottomOf="parent"

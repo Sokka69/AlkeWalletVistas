@@ -22,7 +22,7 @@ class RequestMoneyActivity : AppCompatActivity() {
 
         requestMoneyViewModel = ViewModelProvider(this)[RequestMoneyViewModel::class.java]
 
-        // Obtener el nombre del usuario desde GlobalClassApp
+        // Obtener el nombre del usuario
         val userName =
             "${AlkeWalletApp.userLogged?.first_name} ${AlkeWalletApp.userLogged?.last_name}"
         binding.userName.text = userName

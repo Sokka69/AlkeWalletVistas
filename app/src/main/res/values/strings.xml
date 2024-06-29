@@ -14,6 +14,7 @@
     <string name="btn_login">Login</string>
     <string name="txt_crear_cuenta">Crear cuenta</string>
     <string name="txt_crear_nva_cta">Crear una nueva cuenta</string>
+
     <!--Pantalla Registrar -->
     <string name="txt_registrar">Registrarse y \n empezar a tranferir</string>
     <string name="lbl_nombre">Nombre</string>
@@ -33,9 +34,11 @@
     <string name="lbl_transacciones">Ultimas Transacciones</string>
     <string name="lbl_transferir">Cantidad a transferir</string>
     <string name="lbl_ingresar">Cantidad a ingresar</string>
+    <string name="lbl_fecha">Oct, 14 10:24 AM</string>
     <string name="lbl_notastransferencia">Notas de transferencia</string>
     <string name="lbl_agregar_notastransferencia">Agregar notas de transferencia(opcional)</string>
     <string name="lbl_registro_transacciones">No hay transacciones registradas!</string>
+    <string name="lbl_asunto">Asunto:</string>
 
     <!--Lista de Usuarios -->
     <string name="myperfil">Mi Perfil</string>

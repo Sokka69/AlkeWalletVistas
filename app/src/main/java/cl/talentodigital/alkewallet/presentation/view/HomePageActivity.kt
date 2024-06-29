@@ -19,6 +19,7 @@ class HomePageActivity : AppCompatActivity() {
     private lateinit var transactionViewModel: TransactionViewModel
     private lateinit var homeViewModel: HomeViewModel
     private lateinit var assignAccountViewModel: AssignAccountViewModel
+    private lateinit var transactionAdapter: TransactionAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -32,22 +33,15 @@ class HomePageActivity : AppCompatActivity() {
         transactionViewModel = ViewModelProvider(this)[TransactionViewModel::class.java]
 
 
+
         // Obtener el nombre del usuario desde GlobalClassApp
-        val userName = "Hola, ${AlkeWalletApp.userLogged?.first_name}"
+        val userName = "Hola, ${AlkeWalletApp.userLogged?.first_name} !"
         binding.txtUserName.text = userName
 
         binding.btnEnviar.setOnClickListener { goToSendMoney() }
         binding.btnIngresar.setOnClickListener { goToAddMoney() }
         binding.imgFotoUser.setOnClickListener { goToProfile() }
 
-        // Observamos los resultados de la verificación de la cuenta
-/*        homeViewModel.accountCheckLiveData.observe(this) { hasAccount ->
-            if (hasAccount) {
-                Toast.makeText(this, "Sí hay cuenta", Toast.LENGTH_SHORT).show()
-            } else {
-                showNoAccountDialog()
-            }
-        }*/
 
         homeViewModel.userBalanceLiveData.observe(this) { balance ->
             binding.userSaldo.text = "$$balance"
@@ -77,11 +71,7 @@ class HomePageActivity : AppCompatActivity() {
                 val adapter = TransactionAdapter(transactions)
                 binding.recyclerListUser.adapter = adapter
                 binding.recyclerListUser.layoutManager = LinearLayoutManager(this)
-                /*linearLayoutEmpty.visibility = View.GONE
-                linearLayoutTransactions.visibility = View.VISIBLE*/
-            } else {
-               /* linearLayoutEmpty.visibility = View.VISIBLE
-                linearLayoutTransactions.visibility = View.GONE*/
+
             }
         }
         transactionViewModel.errorMessageLiveData.observe(this) { errorMessage ->

@@ -12,6 +12,9 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import okio.IOException
+import java.text.SimpleDateFormat
+import java.util.Date
+import java.util.Locale
 
 class SendMoneyViewModel(application: Application) : AndroidViewModel(application) {
 
@@ -26,7 +29,11 @@ class SendMoneyViewModel(application: Application) : AndroidViewModel(applicatio
                     errorMessageLiveData.postValue("Token no encontrado")
                     return@launch
                 }
-                val paymentRequest = PaymentRequest(type = "payment", concept = concept, amount = amount)
+                // Obtener la fecha actual en el formato requerido
+                val sdf = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'", Locale.getDefault())
+                val currentDate = sdf.format(Date())
+
+                val paymentRequest = PaymentRequest(type = "payment", concept = concept, amount = amount, date = currentDate )
                 val response = ApiClient.apiService.sendPayment("Bearer $token", 2163,paymentRequest)
 
                 if (response.isSuccessful) {

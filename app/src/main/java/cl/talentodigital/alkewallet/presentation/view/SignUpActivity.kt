@@ -38,10 +38,10 @@ class SignUpActivity : AppCompatActivity() {
     }
 
     private fun register() {
-        val firstName = binding.firstName.text.toString()
-        val lastName = binding.lastName.text.toString()
-        val email = binding.email.text.toString()
-        val password = binding.password.text.toString()
+        val firstName = binding.textFieldFirstName.text.toString()
+        val lastName = binding.textFieldLastName.text.toString()
+        val email = binding.textFieldEmail.text.toString()
+        val password = binding.textFieldEmail.text.toString()
 
         viewModel.register(firstName, lastName, email, password)
 
