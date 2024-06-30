@@ -7,10 +7,10 @@
     android:layout_height="match_parent"
     android:background="@color/azul"
 
-    tools:context=".SplashScreen">
+    tools:context=".presentation.view.SplashScreenActivity">
 
     <ImageView
-        android:id="@+id/icono"
+        android:id="@+id/logoApp"
         android:layout_width="106dp"
         android:layout_height="137dp"
         android:layout_marginStart="152dp"

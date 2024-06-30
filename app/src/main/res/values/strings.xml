@@ -7,35 +7,38 @@
     <!--Pantalla Login -->
     <string name="txt_login_bienvenida">Logea y empeza a tranferir!</string>
     <string name="lbl_email">Email</string>
-    <string name="inputemail">Ingresar tu email</string>
+    <string name="input_email">Ingresar tu email</string>
     <string name="lbl_contasena">Contraseña</string>
-    <string name="inputcontrasena">Ingresar tu contraseña</string>
+    <string name="input_contrasena">Ingresar tu contraseña</string>
     <string name="olvidaste_contasena">Olvidaste tu contraseña?</string>
     <string name="btn_login">Login</string>
-    <string name="txt_crear_cuenta">Crear una nueva cuenta</string>
+    <string name="txt_crear_cuenta">Crear cuenta</string>
+    <string name="txt_crear_nva_cta">Crear una nueva cuenta</string>
 
     <!--Pantalla Registrar -->
     <string name="txt_registrar">Registrarse y \n empezar a tranferir</string>
     <string name="lbl_nombre">Nombre</string>
     <string name="lbl_apellido">Apellidor</string>
     <string name="lbl_reing_contrasena">Reingresar contraseña</string>
-    <string name="inputnombre">Ingresa tu nombre</string>
-    <string name="inputapellido">Ingresa tu apellido</string>
-    <string name="inputconfcontrasena">Reingresar contraseña</string>
+    <string name="input_nombre">Ingresa tu nombre</string>
+    <string name="input_apellido">Ingresa tu apellido</string>
+    <string name="input_conf_contrasena">Reingresar contraseña</string>
 
     <!--Pantalla inicio -->
     <string name="txt_inicio">Inicio</string>
-    <string name="txt_saludo">Hola, Amanda !</string>
+    <string name="txt_saludo">Hola, Bro !</string>
     <string name="txt_balance">Balance Total</string>
-    <string name="txt_saldo">$124.57</string>
+    <string name="txt_saldo">$00.00</string>
     <string name="btn_enviar">Enviar Dinero</string>
     <string name="btn_ingresar">Ingresar Dinero</string>
     <string name="lbl_transacciones">Ultimas Transacciones</string>
     <string name="lbl_transferir">Cantidad a transferir</string>
     <string name="lbl_ingresar">Cantidad a ingresar</string>
+    <string name="lbl_fecha">Oct, 14 10:24 AM</string>
     <string name="lbl_notastransferencia">Notas de transferencia</string>
     <string name="lbl_agregar_notastransferencia">Agregar notas de transferencia(opcional)</string>
     <string name="lbl_registro_transacciones">No hay transacciones registradas!</string>
+    <string name="lbl_asunto">Asunto:</string>
 
     <!--Lista de Usuarios -->
     <string name="myperfil">Mi Perfil</string>
